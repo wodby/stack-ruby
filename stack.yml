@@ -7,6 +7,7 @@ services:
   title: Ruby
   service: ruby
   required: true
+  main: true
   links:
   - name: db
     service: postgres
@@ -14,22 +15,6 @@ services:
     service: valkey
   - name: sendmail
     service: mailpit
-
-- name: nginx
-  title: Nginx
-  service: nginx
-  required: true
-  main: true
-  workloads:
-  - name: main
-    containers:
-    - name: nginx
-      env:
-      - name: NGINX_VHOST_PRESET
-        value: http-proxy
-  links:
-  - name: backend
-    service: ruby
 
 - name: postgres
   title: PostgreSQL
