@@ -5,6 +5,11 @@ Deploy Ruby applications on Kubernetes with Wodby.
 This repository defines the Wodby stack manifests and default service
 composition for Ruby.
 
+<!-- wodby:generated:start -->
+
+## Stack contract
+
+- [Ruby stack on Wodby](https://wodby.com/stacks/ruby)
 - [Browse Wodby application stacks](https://wodby.com/stacks)
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
@@ -30,17 +35,25 @@ start with Wodby CI build configuration:
 
 | Component / service | Default configuration |
 | --- | --- |
-| Ruby<br>`ruby` | required; enabled by default; main service; links: `db` → `postgres`, `redis` → `valkey`, `sendmail` → `mailpit` |
-| PostgreSQL (`postgres`)<br>`postgres` | optional; disabled by default; volumes: `data` 20 GB |
+| Ruby<br>`ruby` | required; enabled by default; links: `db` → `postgres`, `redis` → `valkey`, `sendmail` → `mailpit` |
+| PostgreSQL<br>`postgres` | optional; disabled by default; volumes: `data` 20 GB |
 | Valkey<br>`valkey` | optional; disabled by default |
 | Mailpit<br>`mailpit` | optional; disabled by default |
 | OpenSMTPD<br>`opensmtpd` | optional; disabled by default |
 | Gotenberg<br>`gotenberg` | optional; disabled by default |
-| Cloud PostgreSQL (`cloud-postgres`)<br>`cloud-postgres` | optional; disabled by default |
+| Cloud PostgreSQL<br>`cloud-postgres` | optional; disabled by default |
 
 Enabled optional services are selected by default but can be excluded when an
 app is created. Disabled optional services are available but not selected by
 default. Required services cannot be excluded.
+
+## Validate the stack manifest
+
+```bash
+wodby stack validate-manifest stack.yml --org <org-id>
+```
+
+<!-- wodby:generated:end -->
 
 ## Deploy this stack
 
@@ -60,11 +73,3 @@ production environments.
 When replacing or renaming a stack service, update every related link target
 and derivative reference. Stack-local names and referenced service names are
 distinct identifiers.
-
-Validate the manifests with:
-
-```bash
-wodby stack validate-manifest stack.yml --org <org-id>
-```
-
-See the [stack manifest reference](https://wodby.com/docs/2.0/stacks/template/) and the [managed services index](https://github.com/wodby/services).
