@@ -11,6 +11,7 @@ composition for Ruby.
 
 - [Ruby stack on Wodby](https://wodby.com/stacks/ruby)
 - [Browse Wodby application stacks](https://wodby.com/stacks)
+- [Ruby stack guide](https://wodby.com/docs/2.0/stacks/catalog/ruby/)
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
 
